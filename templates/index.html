@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+
+{% block section_1 %}
+<div class="container" style="max-width: calc(100vw - 40px);">
+    <div class="row">
+        <div class="desktop p-0 d-flex">
+            <div class="col-4 col-md-2 left-column">
+                <div class="d-grid main-buttons" style="padding: 20px;">
+                    <button type="button" class="btn btn-warning mb-2"><span><i
+                                class="bi bi-upload"></i></span><span>Загрузить</span></button>
+                    <button type="button" class="btn" style="background-color: #fff;">Загрузить</button>
+                </div>
+            </div>
+            <div class="col right-column p-5">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div
+                            class="listing listing_with-mouse-selection listing_with-drag-and-drop listing_theme_tile listing_completed">
+                            <div class="listing__items">
+
+                                <div class=" listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                                <div class="listing-item listing-item_theme_tile-empty listing-item_size_m"
+                                    bis_skin_checked="1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block modals %}
+<div class="drag-drop-files d-none">
+    <div id="uploadFile_Loader" class="upload-zone">
+        <form class="form-upload" id="uploadForm" method="post" enctype="multipart/form-data">
+            <div class="upload-zone_dragover">
+                <h1 class="z-n1">Перетащите файл до 1Гб</h1>
+            </div>
+            <div class="form-upload__container">
+                <span class="form-upload__hint" id="uploadForm_Hint"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="selected-files">
+    <div class="container">
+        <div class="row">
+            <div class="dialog p-0 d-none">
+                <div class="line_1 d-inline-flex justify-content-between position-relative"
+                    style="height: 18%; width: 100%;">
+                    <div id="total_progress" class="progress w-100 h-100" style="background-color: #333;"
+                        role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100">
+                        <div class="progress-bar total_progress progress-bar-striped progress-bar-animated">
+                            <div class="d-flex justify-content-center align-items-center position-absolute end-0">
+                                <button id="hide-load-menu" type="button" class="btn text-light">Свернуть</button>
+                                <button id="close-load-menu" type="button" class="btn-close align-middle"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center text-light">
+                                <div style="text-overflow: ellipsis; white-space: nowrap;">
+                                    <div><span class="subline-name fw-semibold">Загрузка...</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line_2 overflow-y-auto">
+                    <div class="line_3 p-2" style="max-height: 250px;">
+                        <div id="line_file_exists" href="#" class="nav-link line-file py-1 d-none">
+                            <div class="row mt-2" style="min-height: 50px; font-size: 12px;">
+                                <div class="col-2" style="text-align: center;">
+                                    <div class="file-icon file-icon_size_xs img_file_exists position-relative">
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="sil">
+                                        <span class="name_file_exists fw-bold"></span>
+                                        <span>уже есть в этой папке. Заменить его загружаемым файлом?
+                                        </span>
+                                    </div>
+                                    <div class="2">
+                                        <button id="confirmOvervrite" fileindex="" type="button"
+                                            class="btn btn-light me-2 p-1">Заменить</button>
+                                        <button id="cancelOvervrite" fileindex="'" type="button"
+                                            class="btn btn-light p-1">Не загружать</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="line_template d-none">
+    <a id="line_file_template" href="#" class="nav-link line-file d-none py-1 mt-1 dynamic_line">
+        <div class="row mt-2" style="min-height: 50px; font-size: 12px;">
+            <div class="col-2">
+                <div class="img">
+                    <span class="file-icon file-icon_size_xs position-relative">
+                        <span class="label-upload position-absolute top-100 start-100 translate-middle badge p-2 z-1"><i
+                                class="bi bi-check-circle-fill" style="font-size: 16px; color: rgb(62, 214, 120);"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="position-relative top-50 start-50 translate-middle"
+                    style="text-overflow: ellipsis; white-space: nowrap;">
+                    <div><span class="subline-name"></span></div>
+                    <div><span class="subline-weight"></span></div>
+                </div>
+            </div>
+            <div class="col-3 p-0 position-relative">
+                <div class="position-relative" style="top: calc(50% - 3px);">
+                    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0"
+                        aria-valuemin="0" aria-valuemax="100" style="height: 6px; max-width: 112px;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+                    </div>
+                </div>
+                <button type="button" class="btn position-absolute top-50 translate-middle-y collapse"
+                    style="border-radius: 7px; box-shadow: 0px 0px 14px 6px rgba(34, 60, 80, 0.2);">Поделиться</button>
+                <span class="position-absolute top-50 translate-middle-y text-danger collapse">Файл уже в папке</span>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="file_block_template d-none">
+    <div class="listing-item listing-item_theme_tile listing-item_size_m listing-item_type_file js-prevent-deselect"
+        tabindex="0" role="row">
+        <div class="listing-item__info">
+            <div class="listing-item__title listing-item__title_overflow_clamp">
+                <span class="clamped-text" aria-hidden="true"
+                    style="font: 13px / 14px 'YS Text', sans-serif; max-width: 90px;"
+                    title="&amp;#10060;ULTRAPIR&amp;#10060; - Вы любите не тех..mp3"></span>
+            </div>
+        </div>
+        <div class="listing-item__icon listing-item__icon_type_icon listing-item__icon_resource_file">
+            <div class="listing-item__icon-wrapper js-prevent-mouse-selection">
+                <span
+                    class="file-icon file-icon_size_m resource-icon-preview resource-icon-preview_theme_tile resource-icon-preview_size_m js-prevent-deselect"></span>
+                <div class="listing-item__fields">
+                    <div class="listing-item__field listing-item__field_public-link" role="none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="static/js/drag-files.js"></script>
+{% endblock %}

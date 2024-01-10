@@ -1,0 +1,143 @@
+.file-icon_ai::after {
+    background-image: url('/static/img/file_extensions_icons/ai.png');
+}
+
+.file-icon_audio::after {
+    background-image: url('/static/img/file_extensions_icons/audio.png');
+}
+
+.file-icon_csv::after {
+    background-image: url('/static/img/file_extensions_icons/csv.png');
+}
+
+.file-icon_dat::after {
+    background-image: url('/static/img/file_extensions_icons/dat.png');
+}
+
+.file-icon_db::after {
+    background-image: url('/static/img/file_extensions_icons/db.png');
+}
+
+.file-icon_dll::after {
+    background-image: url('/static/img/file_extensions_icons/dll.png');
+}
+
+.file-icon_doc::after {
+    background-image: url('/static/img/file_extensions_icons/doc.png');
+}
+
+.file-icon_docx::after {
+    background-image: url('/static/img/file_extensions_icons/docx.png');
+}
+
+.file-icon_dxf::after {
+    background-image: url('/static/img/file_extensions_icons/dxf.png');
+}
+
+.file-icon_eps::after {
+    background-image: url('/static/img/file_extensions_icons/eps.png');
+}
+
+.file-icon_exe::after {
+    background-image: url('/static/img/file_extensions_icons/exe.png');
+}
+
+.file-icon_flv::after {
+    background-image: url('/static/img/file_extensions_icons/flv.png');
+}
+
+.file-icon_gif::after {
+    background-image: url('/static/img/file_extensions_icons/gif.png');
+}
+
+.file-icon_html::after {
+    background-image: url('/static/img/file_extensions_icons/html.png');
+}
+
+.file-icon_iso::after {
+    background-image: url('/static/img/file_extensions_icons/iso.png');
+}
+
+.file-icon_jar::after {
+    background-image: url('/static/img/file_extensions_icons/jar.png');
+}
+
+.file-icon_jpg::after {
+    background-image: url('/static/img/file_extensions_icons/jpg.png');
+}
+
+.file-icon_m3u::after {
+    background-image: url('/static/img/file_extensions_icons/m3u.png');
+}
+
+.file-icon_m4a::after {
+    background-image: url('/static/img/file_extensions_icons/m4a.png');
+}
+
+.file-icon_mov::after {
+    background-image: url('/static/img/file_extensions_icons/mov.png');
+}
+
+.file-icon_mp3::after {
+    background-image: url('/static/img/file_extensions_icons/mp3.png');
+}
+
+.file-icon_mp4::after {
+    background-image: url('/static/img/file_extensions_icons/mp4.png');
+}
+
+.file-icon_mpg::after {
+    background-image: url('/static/img/file_extensions_icons/mpg.png');
+}
+
+.file-icon_no-file::after {
+    background-image: url('/static/img/file_extensions_icons/no-file.png');
+}
+
+.file-icon_pdf::after {
+    background-image: url('/static/img/file_extensions_icons/pdf.png');
+}
+
+.file-icon_php::after {
+    background-image: url('/static/img/file_extensions_icons/php.png');
+}
+
+.file-icon_png::after {
+    background-image: url('/static/img/file_extensions_icons/png.png');
+}
+
+.file-icon_pptx::after {
+    background-image: url('/static/img/file_extensions_icons/pptx.png');
+}
+
+.file-icon_psb::after {
+    background-image: url('/static/img/file_extensions_icons/psb.png');
+}
+
+.file-icon_raw::after {
+    background-image: url('/static/img/file_extensions_icons/raw.png');
+}
+
+.file-icon_sql::after {
+    background-image: url('/static/img/file_extensions_icons/sql.png');
+}
+
+.file-icon_svg::after {
+    background-image: url('/static/img/file_extensions_icons/svg.png');
+}
+
+.file-icon_tiff::after {
+    background-image: url('/static/img/file_extensions_icons/tiff.png');
+}
+
+.file-icon_txt::after {
+    background-image: url('/static/img/file_extensions_icons/txt.png');
+}
+
+.file-icon_video::after {
+    background-image: url('/static/img/file_extensions_icons/video.png');
+}
+
+.file-icon_xd::after {
+    background-image: url('/static/img/file_extensions_icons/xd.png');
+}
