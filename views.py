@@ -17,10 +17,10 @@ def check():
     status = file_exists(filename)
     return jsonify({
         'userId': '10071971Pi',
-        'filename': filename,
+        'file': filename,
         'img': formatting_correct_img(filename),
         'exist': status,
-        'size': size,
+        'size': int(size),
         'extension': filename.split('.')[-1],
     }), 200
 
