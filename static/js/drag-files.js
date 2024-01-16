@@ -8,6 +8,11 @@ let step_progress = 0;
 
 $(document).ready(async function () {
     const dropFileZone = document.querySelector(".upload-zone_dragover");
+    let all_themes_buttons = [];
+    $('.card button').each(function (index, button) {
+        all_themes_buttons.push(button);
+    });
+
     await render_page_file_items();
 
 
@@ -50,6 +55,47 @@ $(document).ready(async function () {
         if (send_files_in_cloud__let.length == 0 && $('.line_3 .dynamic_line').length == 0) close_dialog()
     });
 
+    $('.bt_1er').on('click', async function () {
+        const selected = $(this).attr('background');
+        const play_video = $('#flexSwitchCheckDefault').prop('checked');
+        const section = await getSectionTheme(selected, play_video);
+        $('.root__background').remove();
+        $(document.body).prepend(section);
+        clickClack(this);
+    });
+
+    $('#flexSwitchCheckDefault').on('change', function () {
+        if ($(this).prop('checked')) {
+            $('.videoContent__1njb2f').addClass('collapse');
+        } else {
+            $('.videoContent__1njb2f').removeClass('collapse');
+        }
+    });
+
+    async function getSectionTheme(theme, play_video) {
+        try {
+            const response = await fetch(`/get-background-section?theme=${theme}&play=${play_video}`, {
+                method: 'GET',
+            });
+            if (!response.ok) throw new Error;
+            return await response.json();
+        } catch (error) {
+            console.log('ERROR_GSTE::', error);
+            return;
+        }
+    }
+
+    function clickClack(selected) {
+        $(all_themes_buttons).each(function (index, button) {
+            if ($(button).hasClass('disabled-1')) {
+                $(button).removeClass('disabled-1');
+                $('i', $(button)).addClass('collapse');
+            }
+        });
+        $(selected).addClass('disabled-1');
+        $('i', $(selected)).removeClass('collapse');
+    }
+
     $(document).on('dragenter', function () {
         $('.drag-drop-files').removeClass('d-none');
         dropFileZone.classList.add("_active");
@@ -70,12 +116,9 @@ $(document).ready(async function () {
     dropFileZone.addEventListener("drop", async function (event) {
         hideExistFileLine();
         const files = Array.from(event.dataTransfer?.files || []);
-        const totalFiles = files.length;
-        let currentProgress = 0;
         dropFileZone.classList.remove("_active");
         send_files_in_cloud__let = [];
         send_files_in_cloud__let_index_dialog = [];
-        let progress_step = $('.dialog').width() / totalFiles;
 
         $('.total_progress').css('--bs-progress-bar-transition', 'width 0s');
         $('.total_progress').css('width', 0);
@@ -102,7 +145,6 @@ $(document).ready(async function () {
                     changeExistFileLineDialogState(current_index, true);
                 } else {
                     let upload_response = await uploadFile(file);
-                    // let upload_response = { 'success': true };
                     if (!upload_response.success) { throw new Error };
                     upload_response.filename = shortenFileName(upload_response.file)
                     await insertUploadedFile(upload_response);
@@ -138,31 +180,6 @@ $(document).ready(async function () {
             line_FileExistSpan.addClass('d-none');
         }
     }
-
-    // try {
-    //     let response = await checkFileExistenceAsync(file);
-    //     response.filename = shortenFileName(file.name);
-    //     await render_file_line_template(response);
-    //     if (!response.ok) { console.log(`File ${file.name} uploading error!`); }
-    //     if (response.exist) {
-    //         send_files_in_cloud__let.push(file);
-    //     } else {
-    //         try {
-    //             let upload_response = await uploadFile(file);
-    //             if (!upload_response.success) throw new Error;
-    //             upload_response.filename = shortenFileName(upload_response.file)
-    //             await insertUploadedFile(upload_response);
-
-    //             currentProgress += progress_step;
-    //             $('.total_progress').css('width', currentProgress);
-    //         } catch (error) {
-    //             console.log('ERROR_UFSE::', error);
-    //         }
-    //     }
-    // } catch (error) {
-    //     console.log('ERROR_UFE::', error);
-    //     continue;
-    // }
 
     $('#hide-load-menu').on('click', function () {
         const dialog = $('.dialog')
