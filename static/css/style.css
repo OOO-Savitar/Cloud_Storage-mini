@@ -8,10 +8,48 @@
   --color-mg-typo-primary: rgb(26, 26, 26);
   --color-mg-tint-superlight: #f5f5f5;
   --color-mg-tint-selected: #e0e0e0e0;
+
+  --button-view-clear-typo-color-base: #262633;
+  --popup-view-default-fill-color: #fff;
+
+  --popup-view-default-typo-color: #1a1a1a;
+  --popup-view-default-selected-color: #fff;
+  --popup-view-default-bottom-selected-color: #4b4b4b;
 }
 
 body {
   background: var(--main-body-bg-color);
+}
+
+#settings-views-hide {
+  color: var(--button-view-clear-typo-color-base);
+}
+
+.CoverLayer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.imageContent__1njb2f {
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.imageSource__1njb2f {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.btn.disabled-1 {
+  pointer-events: none;
+  opacity: .85;
+  color: #000;
+  font-size: 26px;
 }
 
 .settings-card {
@@ -21,6 +59,7 @@ body {
   width: var(--width);
   height: var(--height);
   position: relative;
+  color: red;
 }
 
 .settings-card-mini {
@@ -36,6 +75,20 @@ body {
 .card {
   border-radius: 20px;
   right: 0;
+  background-color: var(--popup-view-default-fill-color);
+  color: var(--popup-view-default-typo-color);
+}
+
+.btn.disabled-1::after {
+  content: '';
+  position: absolute;
+  top: 112%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #4b4b4b;
+  opacity: .65;
 }
 
 #settings-views {
@@ -54,7 +107,7 @@ body {
   top: -7px;
   z-index: 100;
   transform: rotate(135deg);
-  background-color: #fff;
+  background-color: var(--popup-view-default-fill-color);
   border-left: 1px solid var(--bs-border-color-translucent);
   border-bottom: 1px solid var(--bs-border-color-translucent);
   border-bottom-left-radius: 4px;
@@ -84,7 +137,7 @@ body {
 .left-column {
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.3);
   width: 272px;
 }
 
@@ -225,8 +278,8 @@ body {
 }
 
 .listing_theme_tile .listing__items {
-    flex-direction: row;
-    flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .listing__items {

@@ -1,0 +1,23 @@
+<div class="root__background">
+{% if not theme.additional.is_color %}
+    <style>
+        body { background: rgb(235, 240, 255);}
+    </style>
+    {% if theme.preview %}
+        <picture class="imageContent__1njb2f CoverLayer" aria-hidden="true">
+            <source class="imageSource__1njb2f" type="image/webp" srcset="{{ theme.preview }}">
+            <img class="imageSource__1njb2f" src="{{ theme.preview }}" alt="">
+        </picture>
+    {% endif%}
+    {% if play == true %}
+        <style>.videoContent__1njb2f {  top: 0;  left: 0;  pointer-events: none;  object-fit: cover;  object-position: top center;  }  .videoContent__1njb2f::-webkit-media-controls {  display: none;  }</style>
+        <video class="videoContent__1njb2f CoverLayer" loop muted autoplay playsinline preload="auto" aria-hidden="true">
+            <source src="{{ theme.background }}" type="video/webm">
+        </video>
+    {% endif %}
+{% else %}
+    <style>
+        body { background: {{ theme.preview }} };
+    </style>
+{% endif %}
+</div>

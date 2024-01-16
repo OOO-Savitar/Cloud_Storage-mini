@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -53,14 +54,14 @@
                         </g>
                     </svg>
                 </a>
-                <button id="settings-views-hide" class="btn"><i class="bi bi-gear"></i></button>
+                <button id="settings-views-hide" class="btn"><i class="bi bi-house-gear-fill"></i></i></button>
             </div>
         </nav>
     </header>
     {% block section_1 %}
     {% endblock %}
 
-    <div id="settings-views" class="settings float-end collapse">
+    <div id="settings-views" class="settings float-end ">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Настройки</h5>
@@ -72,46 +73,24 @@
                     </div>
                 </h6>
                 <div class="container text-center">
-                    <div class="row pb-2 bt_1er">
+                    <div class="row pb-2">
+                        {% for background in backgrounds %}
+                        {% if background.additional.is_on %}
                         <div class="col-md-3 col-4 px-1 mb-3">
-                            <buttnon class="btn p-0 settings-card" style="background-color: #e5eaf1;">
+                            <button
+                                class="btn p-0 bt_1er {% if background.additional.is_default %} disabled-1{% endif %} settings-card"
+                                style="border: none; background: {% if not background.additional.is_color %}
+                                url('{{ background.preview }}') no-repeat center top/cover
+                                {% else %}{{ background.preview }}{% endif %};" background="{{ background.name }}">
                                 <div class="settings-card-inner settings-card-mini d-table">
-                                    <span class="d-table-cell align-middle">Без темы</span>
+                                    <span class="d-table-cell align-middle">{{ background.languages.ru }}</span>
                                 </div>
-                            </buttnon>
+                                <i
+                                    class="bi bi-check2 {% if not background.additional.is_default %}collapse{% endif %}"></i>
+                            </button>
                         </div>
-                        <div class="col-md-3 col-4 px-1 mb-3">
-                            <buttnon class="btn p-0 settings-card" style="background: url('//yastatic.net/s3/psf/general-themes/thumb-f52a78951b8f9b5be6875934f068a477.webp') no-repeat center top/cover;
-                                border: none;">
-                                <div class="settings-card-inner settings-card-mini d-table">
-                                    <span class="d-table-cell align-middle">Новый год</span>
-                                </div>
-                            </buttnon>
-                        </div>
-                        <div class="col-md-3 col-4 px-1 mb-3">
-                            <buttnon class="btn p-0 settings-card" style="background: url(&quot;//yastatic.net/s3/psf/general-themes/flow-thumb-7c50847f9b8a87388d9bd216f3866b5b.webp&quot;) no-repeat center top/cover;
-                                border: none;">
-                                <div class="settings-card-inner settings-card-mini d-table">
-                                    <span class="d-table-cell align-middle">Поток</span>
-                                </div>
-                            </buttnon>
-                        </div>
-                        <div class="col-md-3 col-4 px-1 mb-3">
-                            <buttnon class="btn p-0 settings-card" style="background: url(&quot;//yastatic.net/s3/psf/general-themes/darkflow-thumb-7b4b8b933e5b8f967ffb08d8ece1c7a8.webp&quot;) no-repeat center top/cover;
-                                border: none;">
-                                <div class="settings-card-inner settings-card-mini d-table">
-                                    <span class="d-table-cell align-middle">Темный поток</span>
-                                </div>
-                            </buttnon>
-                        </div>
-                        <div class="col-md-3 col-4 px-1 mb-3">
-                            <buttnon class="btn p-0 settings-card" style="background: url(&quot;//yastatic.net/s3/psf/general-themes/grass-thumb-50901bceadf59373e40bd947ba3fb8e2.webp&quot;) no-repeat center top/cover;
-                                border: none;">
-                                <div class="settings-card-inner settings-card-mini d-table">
-                                    <span class="d-table-cell align-middle">Трава</span>
-                                </div>
-                            </buttnon>
-                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>

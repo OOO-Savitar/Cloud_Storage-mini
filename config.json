@@ -1,0 +1,80 @@
+{
+  "backgrounds": [
+    {
+      "id": 0,
+      "name": "base",
+      "preview": "#ebf0ff",
+      "background": "#ebf0ff",
+      "additional": {
+        "is_on": true,
+        "is_color": true,
+        "is_default": true,
+        "theme": "light"
+      },
+      "languages": {
+        "ru": "Без темы",
+        "en": "No theme"
+      }
+    },
+    {
+      "id": 1,
+      "name": "flow",
+      "preview": "/static/img/themes/preview/flow-1280-72b396dc4228cc7f545b53528bf8a782.webp",
+      "background": "/static/img/themes/themes/flow-fe58fa3952f0059fe76c5e1de224449e.webm",
+      "additional": {
+        "is_on": true,
+        "theme": "light"
+      },
+      "languages": {
+        "ru": "Поток",
+        "en": "Flow"
+      }
+    },
+    {
+      "id": 2,
+      "name": "darkflow",
+      "preview": "/static/img/themes/preview/darkflow-1280-d606f37db4a9559c9fe85d84038b6e7f.webp",
+      "background": "/static/img/themes/themes/darkflow-1c98f1b6485fe79a311cc8d101318d46.webm",
+      "additional": {
+        "is_on": true,
+        "theme": "dark"
+      },
+      "languages": {
+        "ru": "Темный поток",
+        "en": "Dark flow"
+      }
+    },
+    {
+      "id": 3,
+      "name": "grass",
+      "preview": "/static/img/themes/preview/grass-1280-0e435c6f029ef1b6484d2be372529a57.webp",
+      "background": "/static/img/themes/themes/grass-a7a4a50d26c99f07476d4b7096bcbd88.webm",
+      "additional": {
+        "is_on": true,
+        "theme": "dark"
+      },
+      "languages": {
+        "ru": "Трава",
+        "en": "Grass"
+      }
+    }
+  ],
+  "themes_color": {
+    "light": {
+      "--button-view-clear-typo-color-base": "#262633",
+      "--popup-view-default-fill-color": "#fff",
+      "--popup-view-default-typo-color": "#1a1a1a",
+      "--popup-view-default-selected-color": "#fff",
+      "--popup-view-default-bottom-selected-color": "#4b4b4b",
+      "": ""
+    },
+    "dark": {
+      "--button-view-clear-typo-color-base": "#fff",
+      "--popup-view-default-fill-color": "#f7f7ffe6",
+      "--popup-view-default-typo-color": "#f7f7ffe6",
+      "--popup-view-default-selected-color": "#f7f7ffe6",
+      "--popup-view-default-bottom-selected-color": "#fff",
+      "": ""
+    }
+  }
+}
